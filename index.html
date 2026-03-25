@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI Audit — Systems & Process Audit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #1a1a1a;
+            --dark-bg: #111111;
+            --charcoal: #2a2a2a;
+            --accent: #c17f24;
+            --accent-hover: #d99a3a;
+            --accent-subtle: rgba(193,127,36,0.08);
+            --white: #ffffff;
+            --off-white: #f8f6f3;
+            --warm-gray: #f2efe9;
+            --gray-100: #e8e4de;
+            --gray-300: #b5b0a8;
+            --gray-500: #7a756d;
+            --gray-700: #4a4640;
+            --text: #2c2824;
+            --text-light: #9a958e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Noto Serif KR', Georgia, 'Times New Roman', serif;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: var(--dark-bg);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2rem; height: 80px;
+        }
+        .logo a {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem; font-weight: 700; color: var(--white);
+            text-decoration: none; letter-spacing: 0.5px;
+            display: flex; align-items: center; gap: 0.3rem;
+        }
+        .logo a span { color: var(--accent); font-weight: 300; }
+        .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.6); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500; letter-spacing: 0.3px;
+            transition: color 0.25s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-cta {
+            background: var(--accent); color: var(--white);
+            padding: 0.6rem 1.6rem; border-radius: 50px;
+            text-decoration: none; font-size: 0.82rem; font-weight: 600;
+            transition: all 0.25s; letter-spacing: 0.3px;
+        }
+        .nav-cta:hover { background: var(--accent-hover); }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 11rem 2rem 7rem;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(193,127,36,0.3), transparent);
+        }
+        .hero-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+        .hero-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 4px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 3.4rem; font-weight: 700;
+            line-height: 1.25; margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+        .hero h1 em {
+            font-style: normal; color: var(--accent);
+        }
+        .hero-desc {
+            font-size: 1.15rem; color: rgba(255,255,255,0.55);
+            max-width: 640px; margin: 0 auto 3rem;
+            line-height: 1.9; font-weight: 300;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: var(--accent); color: var(--white);
+            padding: 1rem 2.4rem; border-radius: 50px;
+            text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        .hero-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .hero-cta::after { content: '→'; font-size: 1.1rem; }
+
+        /* ── STATS ── */
+        .stats {
+            background: var(--dark);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .stats-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            padding: 3.5rem 2rem;
+        }
+        .stat { text-align: center; padding: 1rem; }
+        .stat-val {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem; font-weight: 700; color: var(--accent);
+            letter-spacing: -0.3px;
+        }
+        .stat-lbl {
+            font-size: 0.82rem; color: rgba(255,255,255,0.4);
+            margin-top: 0.3rem; letter-spacing: 0.3px;
+        }
+
+        /* ── SECTION COMMON ── */
+        section { padding: 7rem 2rem; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .sec-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 1rem;
+        }
+        .sec-title {
+            font-size: 2.4rem; font-weight: 700;
+            line-height: 1.3; margin-bottom: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+        .sec-lead {
+            font-size: 1.05rem; color: var(--gray-500);
+            max-width: 600px; margin-bottom: 3.5rem;
+            line-height: 1.8;
+        }
+        .bg-warm { background: var(--off-white); }
+        .bg-dark { background: var(--dark-bg); color: var(--white); }
+        .bg-dark .sec-eyebrow { color: var(--accent); }
+        .bg-dark .sec-lead { color: rgba(255,255,255,0.45); }
+
+        /* ── CHALLENGES (Pain → Solution) ── */
+        .challenges-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .challenge-card {
+            padding: 2.5rem;
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .challenge-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+        }
+        .challenge-industry {
+            font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 1rem;
+        }
+        .challenge-card h3 {
+            font-size: 1.2rem; font-weight: 600;
+            margin-bottom: 0.8rem; line-height: 1.4;
+        }
+        .challenge-card p {
+            font-size: 0.9rem; color: var(--gray-500);
+            margin-bottom: 1.2rem; line-height: 1.7;
+        }
+        .challenge-solution {
+            font-size: 0.85rem; color: var(--accent);
+            font-weight: 600; padding-top: 1rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        /* ── SERVICES ── */
+        .service-block {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 0; margin-bottom: 1px;
+            min-height: 500px;
+        }
+        .service-block:nth-child(even) { direction: rtl; }
+        .service-block:nth-child(even) > * { direction: ltr; }
+        .service-text {
+            padding: 4rem 3.5rem;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .service-visual {
+            background: var(--off-white);
+            display: flex; align-items: center; justify-content: center;
+            padding: 3rem;
+            position: relative;
+        }
+        .service-visual-dark { background: var(--charcoal); }
+        .service-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 1.5rem;
+        }
+        .service-text h3 {
+            font-size: 1.8rem; font-weight: 700;
+            margin-bottom: 0.5rem; line-height: 1.3;
+        }
+        .service-subtitle {
+            font-size: 0.9rem; color: var(--gray-500);
+            margin-bottom: 1.5rem; font-style: italic;
+        }
+        .service-text p {
+            font-size: 0.95rem; color: var(--gray-700);
+            margin-bottom: 1.5rem; line-height: 1.8;
+        }
+        .service-tags {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .service-tag {
+            font-size: 0.75rem; padding: 0.35rem 0.8rem;
+            border: 1px solid var(--gray-100);
+            border-radius: 50px; color: var(--gray-500);
+            font-weight: 500;
+        }
+        .service-items { list-style: none; }
+        .service-items li {
+            font-size: 0.88rem; color: var(--gray-700);
+            padding: 0.45rem 0 0.45rem 1.4rem;
+            position: relative; line-height: 1.6;
+        }
+        .service-items li::before {
+            content: ''; position: absolute; left: 0; top: 0.85rem;
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent);
+        }
+        /* visual inner cards */
+        .vis-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1rem; width: 100%;
+        }
+        .vis-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 2px;
+            border: 1px solid var(--gray-100);
+        }
+        .vis-card-dark {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.08);
+        }
+        .vis-card h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 0.6rem;
+        }
+        .vis-card p {
+            font-size: 0.82rem; color: var(--gray-500);
+            line-height: 1.6;
+        }
+        .vis-card-dark p { color: rgba(255,255,255,0.5); }
+
+        /* ── METHODOLOGY ── */
+        .method-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .method-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .method-card:hover {
+            border-color: var(--accent);
+            background: rgba(193,127,36,0.05);
+        }
+        .method-icon {
+            font-size: 1.8rem; margin-bottom: 1.2rem;
+            color: var(--accent);
+        }
+        .method-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            color: var(--white); margin-bottom: 0.6rem;
+        }
+        .method-card p {
+            font-size: 0.82rem; color: rgba(255,255,255,0.4);
+            line-height: 1.6;
+        }
+
+        /* ── TRANSFORM (Before/After) ── */
+        .transform-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .transform-card {
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 2px;
+        }
+        .transform-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--white); margin-bottom: 1.2rem;
+        }
+        .tf-row { margin-bottom: 0.8rem; }
+        .tf-label {
+            font-size: 0.65rem; font-weight: 600;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+        .tf-before .tf-label { color: rgba(255,255,255,0.3); }
+        .tf-after .tf-label { color: var(--accent); }
+        .tf-before p {
+            font-size: 0.85rem; color: rgba(255,255,255,0.35);
+            padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .tf-after p {
+            font-size: 0.85rem; color: rgba(255,255,255,0.7);
+            padding: 0.6rem 0;
+        }
+
+        /* ── COVERAGE ── */
+        .cov-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .cov-card {
+            padding: 2rem;
+            border: 1px solid var(--gray-100);
+            border-radius: 2px;
+        }
+        .cov-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--text); margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--accent);
+        }
+        .cov-card ul { list-style: none; }
+        .cov-card li {
+            font-size: 0.85rem; color: var(--gray-500);
+            padding: 0.35rem 0;
+        }
+
+        /* ── PROCESS ── */
+        .process-flow {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 0; position: relative;
+        }
+        .process-flow::before {
+            content: '';
+            position: absolute; top: 32px; left: 10%; right: 10%;
+            height: 1px; background: var(--gray-100);
+        }
+        .proc-step { text-align: center; position: relative; padding: 0 0.5rem; }
+        .proc-num {
+            width: 64px; height: 64px; margin: 0 auto 1.2rem;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.2rem; font-weight: 700; color: var(--accent);
+            background: var(--white);
+            position: relative; z-index: 1;
+        }
+        .proc-step h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem; font-weight: 600;
+            margin-bottom: 0.4rem; color: var(--text);
+        }
+        .proc-step p {
+            font-size: 0.78rem; color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* ── ABOUT ── */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 5rem; align-items: start;
+        }
+        .about-mission {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.3rem; font-weight: 400;
+            line-height: 1.8; color: var(--text);
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+        .about-body p {
+            font-size: 0.95rem; color: var(--gray-700);
+            margin-bottom: 1rem; line-height: 1.8;
+        }
+        .qual-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .qual-item {
+            padding: 1.8rem;
+            background: var(--off-white);
+            border-radius: 2px;
+            text-align: center;
+        }
+        .qual-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            color: var(--accent); margin-bottom: 0.3rem;
+        }
+        .qual-item p {
+            font-size: 0.8rem; color: var(--gray-500);
+        }
+
+        /* ── WHY GTI ── */
+        .why-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .why-card {
+            padding: 2.5rem 2rem;
+            border-top: 3px solid var(--accent);
+            background: var(--white);
+        }
+        .why-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            margin-bottom: 0.8rem; color: var(--text);
+        }
+        .why-card p {
+            font-size: 0.88rem; color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* ── REFERENCES ── */
+        .ref-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .ref-card {
+            padding: 2rem;
+            border: 1px solid var(--gray-100);
+            border-radius: 2px;
+        }
+        .ref-industry {
+            font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 0.8rem;
+        }
+        .ref-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            margin-bottom: 0.6rem; color: var(--text);
+        }
+        .ref-card p {
+            font-size: 0.85rem; color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* ── INSIGHTS ── */
+        .insight-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .insight-card {
+            border: 1px solid var(--gray-100);
+            border-radius: 2px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .insight-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+        .insight-body { padding: 1.8rem; }
+        .insight-type {
+            font-size: 0.68rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 0.6rem;
+        }
+        .insight-card h4 {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1rem; font-weight: 600;
+            margin-bottom: 0.6rem; line-height: 1.5;
+        }
+        .insight-card p {
+            font-size: 0.82rem; color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* ── CTA BAND ── */
+        .cta-band {
+            background: var(--dark-bg);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+        .cta-band h2 {
+            font-size: 2.2rem; font-weight: 700;
+            margin-bottom: 1rem; line-height: 1.3;
+        }
+        .cta-band p {
+            font-size: 1rem; color: rgba(255,255,255,0.45);
+            margin-bottom: 2.5rem;
+            max-width: 480px; margin-left: auto; margin-right: auto;
+        }
+        .cta-band a { margin: 0 0.5rem; }
+        .btn-outline-light {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--white);
+            padding: 0.9rem 2rem; border-radius: 50px;
+            text-decoration: none; font-weight: 500; font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.25s;
+        }
+        .btn-outline-light:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ── CONTACT ── */
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+        .contact-info h3 {
+            font-size: 1.3rem; font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info p {
+            font-size: 0.92rem; color: var(--gray-700);
+            margin-bottom: 1rem; line-height: 1.8;
+        }
+        .ci-item {
+            font-size: 0.9rem; color: var(--gray-500);
+            margin-bottom: 0.8rem;
+        }
+        .ci-item strong {
+            color: var(--text); font-weight: 600;
+            display: block; font-size: 0.75rem;
+            letter-spacing: 1px; text-transform: uppercase;
+            margin-bottom: 0.2rem;
+        }
+        .contact-form {
+            background: var(--off-white);
+            padding: 2.5rem;
+            border-radius: 2px;
+        }
+        .form-row {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1rem; margin-bottom: 1rem;
+        }
+        .fg { margin-bottom: 1rem; }
+        .fg label {
+            display: block; font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.5px; margin-bottom: 0.4rem; color: var(--text);
+        }
+        .fg input, .fg select, .fg textarea {
+            width: 100%; padding: 0.8rem 1rem;
+            border: 1px solid var(--gray-100); background: var(--white);
+            border-radius: 2px; font-size: 0.88rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+        }
+        .fg input:focus, .fg select:focus, .fg textarea:focus {
+            outline: none; border-color: var(--accent);
+        }
+        .fg textarea { resize: vertical; min-height: 100px; }
+        .btn-submit {
+            background: var(--accent); color: var(--white);
+            padding: 1rem 0; width: 100%;
+            border: none; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+            transition: background 0.25s;
+        }
+        .btn-submit:hover { background: var(--accent-hover); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark-bg);
+            color: rgba(255,255,255,0.35);
+            padding: 4rem 2rem 3rem;
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+        }
+        .footer-top {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 2rem;
+        }
+        .footer-brand p {
+            font-size: 0.85rem; line-height: 1.7;
+            margin-top: 1rem;
+        }
+        .footer-col h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.5rem; }
+        .footer-col a {
+            color: rgba(255,255,255,0.35); text-decoration: none;
+            font-size: 0.85rem; transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            display: flex; justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        /* ── MOBILE ── */
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span {
+            display: block; width: 22px; height: 2px;
+            background: var(--white); margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 2.6rem; }
+            .service-block { grid-template-columns: 1fr; min-height: auto; }
+            .service-block:nth-child(even) { direction: ltr; }
+            .service-text { padding: 3rem 2rem; }
+            .service-visual { padding: 2rem; min-height: 300px; }
+            .method-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 9rem 1.5rem 5rem; }
+            section { padding: 5rem 1.5rem; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .challenges-grid { grid-template-columns: 1fr; }
+            .transform-grid { grid-template-columns: 1fr; }
+            .cov-grid { grid-template-columns: 1fr; }
+            .process-flow { grid-template-columns: 1fr; gap: 1.5rem; }
+            .process-flow::before { display: none; }
+            .why-grid { grid-template-columns: 1fr; }
+            .ref-grid { grid-template-columns: 1fr; }
+            .insight-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; }
+            .vis-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.7rem; }
+            .qual-grid { grid-template-columns: 1fr; }
+            .sec-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+    <div class="nav-inner">
+        <div class="logo"><a href="#">GTI <span>|</span> Audit</a></div>
+        <ul class="nav-links">
+            <li><a href="#challenges">Challenges</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="index_en.html" style="border: 1px solid rgba(255,255,255,0.15); padding: 0.35rem 0.8rem; border-radius: 50px;">EN</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">프로젝트 문의</a>
+        <button class="mobile-toggle"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Systems &amp; Process Audit</div>
+        <h1>통제가 작동하는 방식을<br><em>다시 설계합니다</em></h1>
+        <p class="hero-desc">
+            IT 감사, 내부통제, 거버넌스의 전 영역에서<br>
+            데이터가 직접 답하고 시스템이 스스로 증명하는<br>
+            감사 환경을 구현합니다.
+        </p>
+        <a href="#contact" class="hero-cta">프로젝트 상담 시작하기</a>
+    </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<div class="stats">
+    <div class="stats-inner">
+        <div class="stat">
+            <div class="stat-val">Global Big 4</div>
+            <div class="stat-lbl">미국·호주·한국 감사법인 출신</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">15yr+</div>
+            <div class="stat-lbl">IT감사·내부통제 실무 경력</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">Cross-border</div>
+            <div class="stat-lbl">글로벌 감사·부정적발 수행</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">End-to-End</div>
+            <div class="stat-lbl">감사 설계부터 역량 내재화까지</div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ CHALLENGES ═══ -->
+<section id="challenges">
+    <div class="section-inner">
+        <div class="sec-eyebrow">Your Challenges</div>
+        <h2 class="sec-title">이런 고민을 안고 계십니까</h2>
+        <p class="sec-lead">산업과 규모에 관계없이, IT 통제를 둘러싼 본질적인 질문은 같습니다.</p>
+        <div class="challenges-grid">
+            <div class="challenge-card">
+                <div class="challenge-industry">상장사 · IPO 준비 기업</div>
+                <h3>내부회계관리제도의 IT 통제, 어디서부터 시작해야 할지 모르겠습니다</h3>
+                <p>K-SOX 의무 대상이 확대되었지만, ITGC를 자체 수행할 인력도, 위탁할 전문가를 판별할 기준도 부족합니다.</p>
+                <div class="challenge-solution">→ GTI는 COSO 기반 ITGC/ITAC 전 영역을 전수 데이터 검증 방식으로 수행합니다</div>
+            </div>
+            <div class="challenge-card">
+                <div class="challenge-industry">회계법인 · 감사팀</div>
+                <h3>클라이언트마다 ERP가 다르고, 감사 기간은 짧습니다</h3>
+                <p>영림원, 더존, UniERP, SAP — 시스템마다 접근 방식이 다르고, 샘플 기반 테스트만으로는 감리 대응이 불안합니다.</p>
+                <div class="challenge-solution">→ GTI는 ERP 6종 이상의 실전 감사 경험과 전수 분석으로 감리 대응력을 확보합니다</div>
+            </div>
+            <div class="challenge-card">
+                <div class="challenge-industry">금융기관 · 보험 · 캐피탈</div>
+                <h3>금감원 IT검사를 앞두고 있는데, 준비 수준을 가늠할 수 없습니다</h3>
+                <p>67개 점검항목 중 어디가 취약한지 파악이 안 되고, 내규와 실제 운영 간 괴리가 검사 지적으로 이어질까 우려됩니다.</p>
+                <div class="challenge-solution">→ GTI는 규정→절차서→편람 3단계 패키지로 검사 대응 체계를 구축합니다</div>
+            </div>
+            <div class="challenge-card">
+                <div class="challenge-industry">제조 · 유통 · 건설 · 전 산업</div>
+                <h3>자금 거래가 방대한데, 이상 거래를 선제적으로 탐지할 수단이 없습니다</h3>
+                <p>횡령·유용 리스크가 있지만 수작업 검토로는 전수 확인이 불가능하고, 사후 적발에 의존하고 있습니다.</p>
+                <div class="challenge-solution">→ GTI는 전수 거래 데이터를 자동 대사하여 이상 패턴을 사전 식별합니다</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" style="padding: 0;">
+
+    <!-- Service 1: K-SOX -->
+    <div class="service-block">
+        <div class="service-text">
+            <div class="service-num">Service 01</div>
+            <h3>K-SOX IT감사</h3>
+            <div class="service-subtitle">내부회계관리제도 IT 일반통제 · 자동화통제 감사</div>
+            <p>접근통제, 변경관리, 운영관리, 보안관리의 전 영역을 체계적으로 검증합니다. 샘플이 아닌 전수 로그를 분석하고, ERP 시스템 설정값을 직접 추출하여 통제 효과성을 객관적으로 입증합니다.</p>
+            <div class="service-tags">
+                <span class="service-tag">상장사</span>
+                <span class="service-tag">IPO 준비 기업</span>
+                <span class="service-tag">회계법인</span>
+                <span class="service-tag">제조·IT·유통</span>
+            </div>
+            <ul class="service-items">
+                <li>ITGC 4대 영역 감사 수행 (접근·변경·운영·보안)</li>
+                <li>자동화통제(ITAC) 설계 및 운영 효과성 검증</li>
+                <li>RCM 기반 감사조서 작성 및 미비점 평가</li>
+                <li>ERP 시스템별 맞춤 감사 (영림원·더존·UniERP·SAP)</li>
+            </ul>
+        </div>
+        <div class="service-visual">
+            <div class="vis-grid">
+                <div class="vis-card">
+                    <h5>접근통제</h5>
+                    <p>권한 로그 전수 분석, 특수권한·직무분리 위반 자동 식별</p>
+                </div>
+                <div class="vis-card">
+                    <h5>변경관리</h5>
+                    <p>프로그램 이관 이력과 승인 기록의 전수 자동 대조</p>
+                </div>
+                <div class="vis-card">
+                    <h5>운영관리</h5>
+                    <p>배치작업 실행 로그 패턴 분석, 실패·지연 자동 감지</p>
+                </div>
+                <div class="vis-card">
+                    <h5>보안관리</h5>
+                    <p>DB 접근 시도 전수 분석, 비정상 쿼리 자동 필터링</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service 2: 내부감사 -->
+    <div class="service-block">
+        <div class="service-text">
+            <div class="service-num">Service 02</div>
+            <h3>내부감사 체계 구축</h3>
+            <div class="service-subtitle">IT자체감사 지침 수립 · 역량 내재화 · 금융규제 준수</div>
+            <p>금융감독원 IT감사 가이드라인에 기반하여, 조직이 독자적으로 IT 감사를 수행할 수 있는 체계 전반을 설계합니다. 지침 수립에서 그치지 않고, 3년 단계별 내재화 로드맵으로 외부 의존 없는 자체 운영 역량을 구축합니다.</p>
+            <div class="service-tags">
+                <span class="service-tag">보험사</span>
+                <span class="service-tag">캐피탈·리스</span>
+                <span class="service-tag">은행·증권</span>
+                <span class="service-tag">핀테크</span>
+            </div>
+            <ul class="service-items">
+                <li>IT자체감사 관리지침·점검항목 설계 (FSS 67개 항목 매핑)</li>
+                <li>감사자 자격요건·독립성 관리 체계 수립</li>
+                <li>감사 업무편람·서식 개발 (계획서·결과보고서·개선계획서)</li>
+                <li>3단계 역량 내재화: GTI주도 → 공동운영 → 독립운영</li>
+            </ul>
+        </div>
+        <div class="service-visual service-visual-dark">
+            <div class="vis-grid">
+                <div class="vis-card vis-card-dark">
+                    <h5>Phase 1</h5>
+                    <p>GTI 주도 — 지침 수립, 첫 감사 사이클 직접 수행, 절차 실증</p>
+                </div>
+                <div class="vis-card vis-card-dark">
+                    <h5>Phase 2</h5>
+                    <p>공동 운영 — 내부 감사자 코칭, 2회차 감사 공동 수행</p>
+                </div>
+                <div class="vis-card vis-card-dark">
+                    <h5>Phase 3</h5>
+                    <p>독립 운영 — 내부 독자 수행, GTI 자문 지원(연 2회 점검)</p>
+                </div>
+                <div class="vis-card vis-card-dark">
+                    <h5>산출물</h5>
+                    <p>규정 → 절차서 → 편람, 3단계 패키지 일괄 제공</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service 3: 내부통제 -->
+    <div class="service-block">
+        <div class="service-text">
+            <div class="service-num">Service 03</div>
+            <h3>내부통제 프레임워크</h3>
+            <div class="service-subtitle">IT 거버넌스 체계 설계 · 운영리스크 관리 · 규정 수립</div>
+            <p>IT위원회 구성·운영, 직무분리 원칙, 변경관리, 재해복구까지 — 조직의 IT 통제 체계를 구조화하고 내규로 정착시킵니다. 범용 프레임워크가 아닌, 업종별 규제 특수성을 반영한 맞춤형 설계를 제공합니다.</p>
+            <div class="service-tags">
+                <span class="service-tag">금융기관</span>
+                <span class="service-tag">상장사</span>
+                <span class="service-tag">의료·제약</span>
+                <span class="service-tag">에너지·공공</span>
+            </div>
+            <ul class="service-items">
+                <li>IT위원회·협의회 운영 구조 설계 및 RACI 매트릭스</li>
+                <li>프로그램 변경관리·IT프로젝트관리·재해복구 지침 수립</li>
+                <li>직무분리 원칙 조항화, 이해충돌 예외처리 절차</li>
+                <li>오픈소스 SW 관리·제3자 IT리스크 평가 체계</li>
+            </ul>
+        </div>
+        <div class="service-visual">
+            <div class="vis-grid">
+                <div class="vis-card">
+                    <h5>거버넌스 구조</h5>
+                    <p>IT위원회·협의회 역할 분리, 의사결정 체계 표준화</p>
+                </div>
+                <div class="vis-card">
+                    <h5>운영 지침</h5>
+                    <p>변경관리·재해복구·네트워크·DB 관리 지침 일괄 수립</p>
+                </div>
+                <div class="vis-card">
+                    <h5>제3자 리스크</h5>
+                    <p>오픈소스 SCA 도구 운영, 외부 IT서비스 리스크 평가</p>
+                </div>
+                <div class="vis-card">
+                    <h5>정보자산</h5>
+                    <p>자산 목록, 등급 분류, 보호조치 기준 체계 수립</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service 4: Risk Assurance -->
+    <div class="service-block">
+        <div class="service-text">
+            <div class="service-num">Service 04</div>
+            <h3>Risk Assurance</h3>
+            <div class="service-subtitle">전수 데이터 분석 · 이상거래 탐지 · IT 리스크 보증</div>
+            <p>수작업 검토가 놓치는 영역을, 전수 거래 데이터의 자동 대사와 패턴 분석으로 드러냅니다. 자금 흐름의 정합성을 검증하고, 이상 거래를 선제적으로 식별하여 횡령·유용 리스크를 사전에 차단합니다.</p>
+            <div class="service-tags">
+                <span class="service-tag">전 산업</span>
+                <span class="service-tag">제조·건설</span>
+                <span class="service-tag">유통·리테일</span>
+                <span class="service-tag">금융</span>
+            </div>
+            <ul class="service-items">
+                <li>계좌이체 내역과 회계원장의 전수 자동 대사 (Posting Reconciliation)</li>
+                <li>출금 상대방(수취인)과 회계 거래처의 교차 검증 (Counterparty Verification)</li>
+                <li>이중 지불, 시간대별 이상, 벤포드 법칙 기반 분석</li>
+                <li>시스템 환경 리스크 식별·평가 및 보증 보고서 작성</li>
+            </ul>
+        </div>
+        <div class="service-visual service-visual-dark">
+            <div class="vis-grid">
+                <div class="vis-card vis-card-dark">
+                    <h5>Step 1</h5>
+                    <p>Posting Reconciliation — 자금거래의 회계원장 완전성 검증</p>
+                </div>
+                <div class="vis-card vis-card-dark">
+                    <h5>Step 2</h5>
+                    <p>Counterparty Verification — 출금 상대방 교차 검증</p>
+                </div>
+                <div class="vis-card vis-card-dark">
+                    <h5>분석 기법</h5>
+                    <p>이중 지불·시간대·요일별·벤포드 법칙 다차원 분석</p>
+                </div>
+                <div class="vis-card vis-card-dark">
+                    <h5>기대 효과</h5>
+                    <p>전수 검증 기반 횡령 적발 + 예방 내부통제 강화</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ═══ METHODOLOGY ═══ -->
+<section class="bg-dark" id="methodology">
+    <div class="section-inner">
+        <div class="sec-eyebrow">Our Approach</div>
+        <h2 class="sec-title" style="color: var(--white);">감사 방법론의 재구성</h2>
+        <p class="sec-lead">COSO 프레임워크를 기반으로 하되, 현재의 시스템 환경에 맞게 진화시켰습니다. 수작업과 샘플에 의존하던 절차를, 데이터 직접 검증과 자동화된 증거 수집으로 전환합니다.</p>
+
+        <div class="method-grid" style="margin-bottom: 4rem;">
+            <div class="method-card">
+                <div class="method-icon">&#9678;</div>
+                <h4>전수 데이터 검증</h4>
+                <p>샘플이 아닌 전체 모집단을 대상으로 분석합니다. 누락 리스크를 원천 제거합니다.</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">&#9881;</div>
+                <h4>시스템 직접 추출</h4>
+                <p>ERP·DB·OS에서 설정값과 로그를 직접 추출합니다. 인터뷰와 문서에 의존하지 않습니다.</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">&#9733;</div>
+                <h4>자동화된 증거 수집</h4>
+                <p>반복적 검증 절차를 자동화하여 인적 오류를 차단하고 감사 효율을 높입니다.</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">&#10070;</div>
+                <h4>패턴 기반 이상 탐지</h4>
+                <p>통계적 분석과 패턴 인식으로 이상 징후를 사전에 식별합니다.</p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--white); font-size: 1.3rem; margin-bottom: 2rem;">기존 방식과의 비교</h3>
+        <div class="transform-grid">
+            <div class="transform-card">
+                <h4>접근통제 검토</h4>
+                <div class="tf-row tf-before">
+                    <div class="tf-label">기존</div>
+                    <p>사용자 목록에서 샘플 N건을 추출하여 수작업으로 확인</p>
+                </div>
+                <div class="tf-row tf-after">
+                    <div class="tf-label">GTI</div>
+                    <p>전체 권한 로그를 자동 분석하여 이상 접근·특수권한 위반을 즉시 식별</p>
+                </div>
+            </div>
+            <div class="transform-card">
+                <h4>변경관리 검토</h4>
+                <div class="tf-row tf-before">
+                    <div class="tf-label">기존</div>
+                    <p>변경 요청서를 샘플 추출하여 문서 단위로 검토</p>
+                </div>
+                <div class="tf-row tf-after">
+                    <div class="tf-label">GTI</div>
+                    <p>이관 이력 전수 대조, 미승인 변경을 자동으로 탐지</p>
+                </div>
+            </div>
+            <div class="transform-card">
+                <h4>배치작업 검토</h4>
+                <div class="tf-row tf-before">
+                    <div class="tf-label">기존</div>
+                    <p>배치 스케줄 목록을 육안으로 확인</p>
+                </div>
+                <div class="tf-row tf-after">
+                    <div class="tf-label">GTI</div>
+                    <p>실행 로그 전수 분석, 실패율 급등·스케줄 위반 패턴 자동 감지</p>
+                </div>
+            </div>
+            <div class="transform-card">
+                <h4>DB 보안 검토</h4>
+                <div class="tf-row tf-before">
+                    <div class="tf-label">기존</div>
+                    <p>DB 계정 목록을 발췌하여 확인</p>
+                </div>
+                <div class="tf-row tf-after">
+                    <div class="tf-label">GTI</div>
+                    <p>접근 시도 전체 로그를 분석, 비정상 쿼리를 자동 필터링</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ COVERAGE ═══ -->
+<section class="bg-warm">
+    <div class="section-inner">
+        <div class="sec-eyebrow">Coverage</div>
+        <h2 class="sec-title">지원 환경</h2>
+        <p class="sec-lead">다양한 시스템 환경에서의 실전 경험을 보유하고 있습니다.</p>
+        <div class="cov-grid">
+            <div class="cov-card">
+                <h4>ERP 시스템</h4>
+                <ul>
+                    <li>영림원 ERP (K-System)</li>
+                    <li>더존 iCube / Bizbox</li>
+                    <li>UniERP (Bizentro)</li>
+                    <li>SAP / Oracle ERP</li>
+                </ul>
+            </div>
+            <div class="cov-card">
+                <h4>인프라 환경</h4>
+                <ul>
+                    <li>On-premise 서버 환경</li>
+                    <li>AWS / Azure 클라우드</li>
+                    <li>하이브리드 인프라</li>
+                    <li>클라우드 Carve-out 처리</li>
+                </ul>
+            </div>
+            <div class="cov-card">
+                <h4>데이터베이스 · 보안</h4>
+                <ul>
+                    <li>MS-SQL / Oracle DB / MySQL</li>
+                    <li>DB 접근통제 솔루션 (SecureMax 등)</li>
+                    <li>네트워크 보안 구성 검토</li>
+                    <li>물리적 출입통제 검증</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section>
+    <div class="section-inner">
+        <div class="sec-eyebrow">Process</div>
+        <h2 class="sec-title">협력 프로세스</h2>
+        <p class="sec-lead">처음 협력하는 파트너도 안심할 수 있는 체계적인 절차를 운영합니다. 독립성을 유지하며, 기밀 유지 계약을 선체결합니다.</p>
+        <div class="process-flow">
+            <div class="proc-step">
+                <div class="proc-num">1</div>
+                <h4>파트너십 미팅</h4>
+                <p>감사 범위·현황·일정 공유, 기밀유지 계약</p>
+            </div>
+            <div class="proc-step">
+                <div class="proc-num">2</div>
+                <h4>감사 계획</h4>
+                <p>RCM 검토, 테스트 절차 협의, 역할 분담</p>
+            </div>
+            <div class="proc-step">
+                <div class="proc-num">3</div>
+                <h4>현장 수행</h4>
+                <p>증거 수집, 시스템 접근, 전수 데이터 분석</p>
+            </div>
+            <div class="proc-step">
+                <div class="proc-num">4</div>
+                <h4>조서 작성</h4>
+                <p>고객 양식 맞춤 결과 문서 제공</p>
+            </div>
+            <div class="proc-step">
+                <div class="proc-num">5</div>
+                <h4>보고 · 후속</h4>
+                <p>발견사항 보고, 개선 권고, 사후 지원</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="bg-warm" id="about">
+    <div class="section-inner">
+        <div class="sec-eyebrow">About GTI</div>
+        <h2 class="sec-title">GTI Audit에 대하여</h2>
+        <div class="about-grid">
+            <div class="about-body">
+                <div class="about-mission">
+                    "조직이 IT 리스크를 스스로 통제할 수 있는 능력을 갖추도록 지원한다"
+                </div>
+                <p>GTI Audit의 대표는 글로벌 Big 4 회계법인의 미국·호주·한국 오피스에서 회계감사, 전산감사, 내부통제 검토, 내부감사 및 부정적발 업무를 수행한 경력을 보유하고 있습니다.</p>
+                <p>글로벌 자산운용사·헤지펀드·보험사를 대상으로 Financial Service Sector 전문 회계감사와 전산 재무데이터 검증을 수행했으며, 글로벌 제조·IT·물류 기업에 대한 ISAE 3402 기반 내부통제 검토 및 보고 경험을 갖추고 있습니다.</p>
+                <p>국내에서는 주요 통신·항공·반도체·금융·에너지 분야 상장사의 내부회계관리제도 검토, 재무데이터 입증감사, 사업 프로세스·통제 효과성 개선 컨설팅을 수행했습니다. 글로벌 피투자 법인의 비즈니스 프로세스 통제 활동 검토와 경영 점검도 포함됩니다.</p>
+                <p>호주에서는 글로벌 투자펀드·국적 항공사·정부 기관·유통·산업재 기업을 대상으로 주요 사업 거래의 적정성 검토, 잠재적 경영진·직원 부정 적발 및 통제 개선 컨설팅을 수행했습니다.</p>
+                <p>이러한 글로벌 현장 경험을 기반으로, COSO 프레임워크 위에 데이터 직접 검증과 자동화된 감사 방법론을 결합하여, 규정→절차서→편람의 3단계 패키지를 통한 역량 내재화를 설계합니다.</p>
+            </div>
+            <div>
+                <div class="qual-grid">
+                    <div class="qual-item">
+                        <h4>CISA</h4>
+                        <p>공인정보시스템감사사</p>
+                    </div>
+                    <div class="qual-item">
+                        <h4>CISSP</h4>
+                        <p>공인정보시스템보안전문가</p>
+                    </div>
+                    <div class="qual-item">
+                        <h4>Big 4 경력</h4>
+                        <p>미국·호주·한국 3개국 오피스</p>
+                    </div>
+                    <div class="qual-item">
+                        <h4>감사 자동화</h4>
+                        <p>전수 분석·자동화 도구 개발</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ WHY GTI ═══ -->
+<section>
+    <div class="section-inner">
+        <div class="sec-eyebrow">Differentiators</div>
+        <h2 class="sec-title">왜 GTI인가</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <h4>시스템과 프로세스, 모두 봅니다</h4>
+                <p>전산 통제 영역의 전문성 위에, 사업 프로세스 전반의 리스크와 통제 구조까지 아우르는 감사 관점을 제공합니다.</p>
+            </div>
+            <div class="why-card">
+                <h4>현장에서 증명된 산출물</h4>
+                <p>이론 컨설팅이 아닌, 실제 금융기관과 상장사에서 감독당국 검사를 통과한 실무 수준의 결과물을 제공합니다.</p>
+            </div>
+            <div class="why-card">
+                <h4>전수 분석, 누락 제로</h4>
+                <p>샘플 추출이 아닌 전체 모집단을 대상으로 검증합니다. 누락 리스크를 원천 제거하고 감리 대응력을 확보합니다.</p>
+            </div>
+            <div class="why-card">
+                <h4>내재화 중심 설계</h4>
+                <p>GTI에 지속 의존하지 않도록 역량 내재화 로드맵을 처음부터 설계합니다. 3년 후 독자 운영이 목표입니다.</p>
+            </div>
+            <div class="why-card">
+                <h4>업종별 맞춤 접근</h4>
+                <p>금융·제조·IT·유통 등 업종별 규제 특수성과 시스템 환경을 반영한 차별화된 감사를 수행합니다.</p>
+            </div>
+            <div class="why-card">
+                <h4>파트너 포지션</h4>
+                <p>감사 품질을 높이는 지원자로서 협력합니다. 독립성과 기밀을 보장하는 구조적 장치를 갖추고 있습니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ REFERENCES ═══ -->
+<section class="bg-warm" id="references">
+    <div class="section-inner">
+        <div class="sec-eyebrow">References</div>
+        <h2 class="sec-title">프로젝트 사례</h2>
+        <p class="sec-lead">고객사 기밀 보호를 위해 익명화하여 소개합니다.</p>
+        <div class="ref-grid">
+            <div class="ref-card">
+                <div class="ref-industry">글로벌 금융 — 자산운용·헤지펀드·보험</div>
+                <h4>Financial Service Sector 회계·전산감사</h4>
+                <p>글로벌 자산운용사, 헤지펀드, 대형 보험사를 대상으로 회계감사 및 전산 재무데이터 검증 수행. Financial Service Sector에 특화된 감사 방법론 적용.</p>
+            </div>
+            <div class="ref-card">
+                <div class="ref-industry">글로벌 제조·IT·물류</div>
+                <h4>ISAE 3402 기반 내부통제 검토</h4>
+                <p>글로벌 자동차·게임·물류 기업의 내부통제 설계 및 운영 효과성을 국제 감사 기준에 따라 검토하고 보고서 발행.</p>
+            </div>
+            <div class="ref-card">
+                <div class="ref-industry">국내 주요 상장사 — 통신·항공·반도체·금융·에너지</div>
+                <h4>내부회계관리제도 검토 및 프로세스 개선</h4>
+                <p>다양한 산업의 대형 상장사를 대상으로 내부회계관리제도 검토, 재무데이터 입증감사, 사업 프로세스·통제 효과성 개선 컨설팅 수행.</p>
+            </div>
+            <div class="ref-card">
+                <div class="ref-industry">글로벌 기업 — 내부감사·부정적발</div>
+                <h4>Cross-border 부정적발 및 통제 개선</h4>
+                <p>글로벌 투자펀드, 국적 항공사, 정부 기관, 유통·산업재 기업 대상 주요 거래 적정성 검토. 잠재적 경영진·직원 부정 적발 및 통제 개선 컨설팅.</p>
+            </div>
+            <div class="ref-card">
+                <div class="ref-industry">국내 보험사</div>
+                <h4>IT 감사 체계 전면 구축</h4>
+                <p>IT자체감사 관리지침 신설, FSS 67개 점검항목 매핑, 업무편람·서식 일체 개발. 감독당국 검사 대응 완료.</p>
+            </div>
+            <div class="ref-card">
+                <div class="ref-industry">국내 상장 제조사</div>
+                <h4>K-SOX ITGC 감사 수행</h4>
+                <p>ERP 접근통제·변경관리 전수 검증, 자동화통제 효과성 테스트, 감사조서 작성 및 미비점 평가.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ INSIGHTS ═══ -->
+<section>
+    <div class="section-inner">
+        <div class="sec-eyebrow">Insights</div>
+        <h2 class="sec-title">인사이트</h2>
+        <p class="sec-lead">규제 동향, 실무 가이드, 감사 트렌드를 공유합니다.</p>
+        <div class="insight-grid">
+            <div class="insight-card">
+                <div class="insight-body">
+                    <div class="insight-type">규제 동향</div>
+                    <h4>전자금융감독규정 개정 포인트와 금융기관 대응 방향</h4>
+                    <p>주요 개정 사항이 IT 내부통제에 미치는 영향과 실무 대응 전략을 분석합니다.</p>
+                </div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-body">
+                    <div class="insight-type">실무 가이드</div>
+                    <h4>IT자체감사 점검항목 67개, 어디서부터 시작해야 하는가</h4>
+                    <p>금감원 가이드라인의 핵심 항목을 우선순위별로 정리하고 착수 전략을 제시합니다.</p>
+                </div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-body">
+                    <div class="insight-type">체크리스트</div>
+                    <h4>금감원 IT검사 전 자가진단 핵심 10문항</h4>
+                    <p>검사 대응 준비 상태를 스스로 점검할 수 있는 핵심 문항을 제공합니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CTA BAND ═══ -->
+<div class="cta-band">
+    <h2>지금 시작하십시오</h2>
+    <p>첫 미팅은 무료입니다. 현황을 공유해 주시면 최적의 접근 전략을 제안합니다.</p>
+    <div>
+        <a href="#contact" class="hero-cta" style="margin-right: 1rem;">프로젝트 문의</a>
+        <a href="#" class="btn-outline-light">서비스 소개서 다운로드</a>
+    </div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+    <div class="section-inner">
+        <div class="sec-eyebrow">Contact</div>
+        <h2 class="sec-title">문의하기</h2>
+        <p class="sec-lead">프로젝트 문의, 무료 사전진단 신청, 파트너십 제안 등 어떤 내용이든 환영합니다.</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>GTI Audit</h3>
+                <p>IT 감사·내부통제·거버넌스 전문 법인.<br>
+                시스템이 직접 답하는 감사 환경을 구현합니다.</p>
+                <br>
+                <div class="ci-item"><strong>Email</strong>info@gtiaudit.com</div>
+                <div class="ci-item"><strong>Tel</strong>02-0000-0000</div>
+                <div class="ci-item"><strong>Address</strong>서울특별시 (주소 추후 기재)</div>
+                <br>
+                <h3 style="font-size: 1.1rem;">무료 사전진단 서비스</h3>
+                <p>금감원 IT감사 67개 항목 중 핵심 20개 항목 자가진단 + GTI 전문가 1시간 리뷰를 무료로 제공합니다. 아래 폼에서 '무료 사전진단'을 선택해 주세요.</p>
+            </div>
+            <div class="contact-form">
+                <div class="form-row">
+                    <div class="fg"><label>회사명</label><input type="text" placeholder="회사명"></div>
+                    <div class="fg"><label>담당자명</label><input type="text" placeholder="담당자명"></div>
+                </div>
+                <div class="form-row">
+                    <div class="fg"><label>연락처</label><input type="tel" placeholder="010-0000-0000"></div>
+                    <div class="fg"><label>이메일</label><input type="email" placeholder="email@company.com"></div>
+                </div>
+                <div class="fg">
+                    <label>관심 서비스</label>
+                    <select>
+                        <option value="">선택하세요</option>
+                        <option>K-SOX IT감사 (ITGC/ITAC)</option>
+                        <option>내부감사 체계 구축</option>
+                        <option>내부통제 프레임워크</option>
+                        <option>Risk Assurance</option>
+                        <option>무료 사전진단</option>
+                        <option>기타</option>
+                    </select>
+                </div>
+                <div class="fg">
+                    <label>문의 내용 (선택)</label>
+                    <textarea placeholder="현재 상황이나 문의 사항을 간략히 기술해 주세요"></textarea>
+                </div>
+                <button class="btn-submit">문의 보내기</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo"><a href="#">GTI <span>|</span> Audit</a></div>
+                <p>Systems &amp; Process Audit 전문 법인.<br>IT 감사·내부통제·거버넌스의 전 영역에서 데이터가 직접 답하는 감사 환경을 구현합니다.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="#services">K-SOX IT감사</a></li>
+                    <li><a href="#services">내부감사 체계 구축</a></li>
+                    <li><a href="#services">내부통제 프레임워크</a></li>
+                    <li><a href="#services">Risk Assurance</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#about">회사 소개</a></li>
+                    <li><a href="#methodology">방법론</a></li>
+                    <li><a href="#references">프로젝트 사례</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="#contact">프로젝트 문의</a></li>
+                    <li><a href="#contact">무료 사전진단</a></li>
+                    <li><a href="mailto:info@gtiaudit.com">info@gtiaudit.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 GTI Audit. All rights reserved.</span>
+            <span>IT Governance · Audit · Compliance Consulting</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
