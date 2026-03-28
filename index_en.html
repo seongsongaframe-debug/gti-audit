@@ -675,7 +675,15 @@
             .ref-grid { grid-template-columns: 1fr; }
             .insight-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .nav-links { display: none; }
+            .nav-links {
+                display: none;
+                position: absolute; top: 80px; left: 0; right: 0;
+                background: var(--dark-bg);
+                flex-direction: column; gap: 0; padding: 1rem 0;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { text-align: center; padding: 0.8rem 0; }
             .mobile-toggle { display: block; }
             .form-row { grid-template-columns: 1fr; }
             .footer-top { grid-template-columns: 1fr; gap: 2rem; }
@@ -1355,5 +1363,15 @@
     </div>
 </footer>
 
+<script>
+document.querySelector('.mobile-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+    });
+});
+</script>
 </body>
 </html>
