@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GTI Recruit | 싱가포르 MOH 공식 벤더 · 한국 간호사 해외취업</title>
+<meta name="description" content="GTI Recruit는 싱가포르 보건부(MOH) 공식 벤더로서 한국 간호사의 싱가포르 공공병원 취업을 지원서 접수부터 현지 정착까지 책임지고 지원합니다." />
+<meta property="og:title" content="GTI Recruit | 싱가포르 MOH 공식 벤더" />
+<meta property="og:description" content="지원서 접수 · 서류 준비 · 면허 시험 · 비자 · 현지 정착까지 한 번에." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif; }
+  .gradient-hero {
+    background: linear-gradient(135deg, #0a2540 0%, #0f4c81 55%, #1e88c8 100%);
+  }
+  .gradient-accent {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  }
+  .chip {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .fade-up { animation: fadeUp .8s ease both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .step-num {
+    background: linear-gradient(135deg, #1e88c8, #0f4c81);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(15,76,129,.25); }
+  details[open] summary .plus { transform: rotate(45deg); }
+  summary { list-style: none; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+  .plus { transition: transform .2s ease; }
+</style>
+</head>
+<body class="text-slate-800 bg-white">
+
+<!-- Announcement Bar (맨 위 수수료 0원 강조) -->
+<div class="fixed top-0 inset-x-0 z-[60] gradient-accent text-white text-center text-sm font-bold py-2.5 px-4 shadow-md">
+  <span class="inline-flex items-center gap-2 flex-wrap justify-center">
+    <span class="bg-white text-red-600 text-[11px] font-extrabold px-2 py-0.5 rounded-full">100% FREE</span>
+    지원자 수수료 <span class="text-yellow-200 text-base">0원</span> · 상담부터 싱가포르 현지 정착까지 <u>전 과정 무료</u>
+  </span>
+</div>
+
+<!-- Top Bar -->
+<header class="fixed top-[44px] inset-x-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg gradient-hero flex items-center justify-center text-white font-extrabold">G</div>
+      <div class="leading-tight">
+        <div class="font-extrabold text-slate-900">GTI Recruit</div>
+        <div class="text-[11px] text-slate-500">Singapore MOH Official Vendor</div>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+      <a href="#why" class="hover:text-slate-900">왜 GTI인가</a>
+      <a href="#services" class="hover:text-slate-900">서비스</a>
+      <a href="#process" class="hover:text-slate-900">진행 절차</a>
+      <a href="#conditions" class="hover:text-slate-900">근무 조건</a>
+      <a href="#roadmap" class="hover:text-slate-900">커리어 로드맵</a>
+      <a href="#australia" class="hover:text-slate-900">호주 루트</a>
+      <a href="#education" class="hover:text-slate-900">영어 지원</a>
+      <a href="#faq" class="hover:text-slate-900">FAQ</a>
+    </nav>
+    <a href="#apply" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-700">
+      무료 상담 신청 →
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="gradient-hero text-white pt-40 pb-24 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-20 pointer-events-none"
+       style="background-image:radial-gradient(circle at 20% 20%, #ffffff33 0, transparent 40%),radial-gradient(circle at 80% 70%, #ffffff22 0, transparent 45%);"></div>
+  <div class="max-w-6xl mx-auto px-5 relative">
+    <div class="flex flex-wrap gap-2 mb-6">
+      <span class="chip bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">🇸🇬 싱가포르 MOH 공식 벤더</span>
+      <span class="chip bg-yellow-300 text-slate-900 text-xs font-extrabold px-3 py-1.5 rounded-full">💸 지원자 수수료 0원</span>
+      <span class="chip bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">🇸🇬 영주권 신청 가능</span>
+      <span class="chip bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">🇦🇺 호주 간호사 이직 루트</span>
+      <span class="chip bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full">현지 사무소 운영</span>
+    </div>
+    <h1 class="fade-up text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+      한국 간호사의 싱가포르 취업,<br/>
+      <span class="text-sky-300">GTI Recruit가 처음부터 끝까지</span><br/>
+      책임집니다.
+    </h1>
+    <p class="fade-up mt-6 text-lg md:text-xl text-sky-100/90 max-w-3xl">
+      GTI Recruit는 싱가포르 보건부 <b class="text-white">MOH(Ministry of Health)가 공식 인증한 채용 벤더</b>입니다.
+      지원서 접수, 서류 준비, 싱가포르 간호사 시험, 면허 승인, 취업비자, 그리고
+      <b class="text-white">현지 정착까지 전 과정을 직접 수행</b>합니다.
+    </p>
+
+    <div class="fade-up mt-10 flex flex-col sm:flex-row gap-3">
+      <a href="#apply" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-sky-100">
+        1:1 무료 상담 신청하기
+        <span>→</span>
+      </a>
+      <a href="#process" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10">
+        전체 진행 절차 보기
+      </a>
+    </div>
+
+    <!-- Key Stats -->
+    <div class="fade-up mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white/10 border border-white/15 rounded-2xl p-5">
+        <div class="text-3xl font-extrabold text-white">MOH</div>
+        <div class="text-sm text-sky-100/80 mt-1">싱가포르 보건부 공식 벤더</div>
+      </div>
+      <div class="bg-yellow-300 text-slate-900 rounded-2xl p-5 relative">
+        <div class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">FREE</div>
+        <div class="text-3xl font-extrabold">0원</div>
+        <div class="text-sm font-semibold mt-1">지원자 수수료 일체 없음</div>
+      </div>
+      <div class="bg-white/10 border border-white/15 rounded-2xl p-5">
+        <div class="text-3xl font-extrabold text-white">SGD 45K+</div>
+        <div class="text-sm text-sky-100/80 mt-1">연봉 약 5,345만원~</div>
+      </div>
+      <div class="bg-white/10 border border-white/15 rounded-2xl p-5">
+        <div class="text-3xl font-extrabold text-white">SG Office</div>
+        <div class="text-sm text-sky-100/80 mt-1">싱가포르 현지 지원팀</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Strip -->
+<section class="bg-slate-50 border-y border-slate-200 py-6">
+  <div class="max-w-6xl mx-auto px-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-slate-600 text-sm font-medium">
+    <span class="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 px-3 py-1.5 rounded-full font-bold">💸 지원자 부담금 0원</span>
+    <span>🏥 싱가포르 공공 의료기관 직접 연계</span>
+    <span class="hidden md:inline">·</span>
+    <span>📝 MOH 공식 벤더 계약</span>
+    <span class="hidden md:inline">·</span>
+    <span>✈️ 왕복 항공권·숙소 지원</span>
+    <span class="hidden md:inline">·</span>
+    <span>🤝 현지 도착 후 정착 지원</span>
+  </div>
+</section>
+
+<!-- WHY GTI -->
+<section id="why" class="py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="max-w-3xl">
+      <div class="text-sm font-bold text-sky-600 tracking-widest mb-3">WHY GTI</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">
+        왜 수백 곳의 에이전시 중에<br/>GTI Recruit이어야 할까요?
+      </h2>
+      <p class="mt-4 text-slate-600">
+        싱가포르 공공병원 취업은 단순한 소개가 아니라 <b>MOH의 정식 승인 프로세스</b>를 통과해야 합니다.
+        GTI Recruit은 그 프로세스에 대한 공식 자격을 보유하고 있습니다.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <div class="card-hover rounded-2xl border border-slate-200 p-7 bg-white">
+        <div class="w-12 h-12 rounded-xl gradient-hero flex items-center justify-center text-white text-xl font-bold">01</div>
+        <h3 class="mt-5 text-xl font-bold text-slate-900">싱가포르 MOH 공식 벤더</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          GTI Recruit는 싱가포르 보건부(Ministry of Health)의 <b>공식 인증 채용 파트너</b>입니다.
+          공공병원(Public Healthcare Cluster)과 직접 연결된 몇 안 되는 한국 창구입니다.
+        </p>
+      </div>
+      <div class="card-hover rounded-2xl border border-slate-200 p-7 bg-white">
+        <div class="w-12 h-12 rounded-xl gradient-hero flex items-center justify-center text-white text-xl font-bold">02</div>
+        <h3 class="mt-5 text-xl font-bold text-slate-900">처음부터 끝까지 A to Z</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          서류 번역·공증부터 싱가포르 간호사 면허시험(SNB), 취업비자(EP/SP),
+          항공권, 초기 숙소까지 <b>모든 단계를 GTI가 직접 처리</b>합니다.
+          선생님은 준비만 하시면 됩니다.
+        </p>
+      </div>
+      <div class="card-hover rounded-2xl border border-slate-200 p-7 bg-white">
+        <div class="w-12 h-12 rounded-xl gradient-hero flex items-center justify-center text-white text-xl font-bold">03</div>
+        <h3 class="mt-5 text-xl font-bold text-slate-900">싱가포르 현지 지원팀</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          도착 후가 진짜 시작입니다. GTI는 <b>싱가포르 현지 사무소</b>를 운영하며,
+          계좌 개설·주거·교통·병원 온보딩까지 한국어로 도와드립니다.
+          문제가 생기면 바로 달려갑니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES (anchor #services) -->
+<section id="services" class="py-24 bg-gradient-to-b from-slate-50 to-white border-y border-slate-100">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+      <div>
+        <div class="text-sm font-bold text-sky-600 tracking-widest mb-3">SERVICES</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">
+          GTI Recruit의 풀 서비스
+        </h2>
+        <p class="mt-3 text-slate-600 max-w-2xl">출국 전 한국에서, 출국 후 싱가포르에서 — 모든 구간을 GTI가 책임집니다.</p>
+        <div class="mt-4 inline-flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 px-4 py-2 rounded-full text-sm font-bold">
+          🎁 아래 모든 서비스가 <span class="text-red-600 font-extrabold">지원자 100% 무료</span>
+        </div>
+      </div>
+      <a href="#apply" class="inline-flex items-center gap-2 text-sky-700 font-semibold hover:underline">
+        상담 신청하기 →
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- 한국에서 -->
+      <div class="rounded-3xl bg-white border border-slate-200 p-8 card-hover">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-bold">🇰🇷 한국 출국 전</div>
+        <h3 class="mt-5 text-2xl font-extrabold text-slate-900">서류·시험·비자 모든 준비</h3>
+        <ul class="mt-5 space-y-3 text-slate-700">
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>무료 자격 사전 심사 · 1:1 컨설팅</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>이력서·자기소개서 영문 작성 지원</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>MOH 공공병원 직접 매칭 · 인터뷰 세팅</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>영어 인터뷰 대비 · 모의면접 코칭</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>IELTS · 의료 영어 교육 프로그램 연계</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>학위·경력·면허 서류 번역 및 공증 대행</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>싱가포르 간호위원회(SNB) 등록 · CBT 시험 가이드</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>취업비자(EP/SP) 신청 및 발급</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>출국 전 건강검진·예방접종 안내</span></li>
+          <li class="flex gap-3"><span class="text-sky-600 font-bold">✓</span><span>항공권 예약 및 출국 일정 조율</span></li>
+        </ul>
+      </div>
+
+      <!-- 싱가포르에서 -->
+      <div class="rounded-3xl bg-slate-900 text-white p-8 card-hover relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 w-56 h-56 rounded-full bg-sky-500/20 blur-3xl"></div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500 text-white text-xs font-bold">🇸🇬 싱가포르 도착 후</div>
+        <h3 class="mt-5 text-2xl font-extrabold">현지 정착까지 옆에서</h3>
+        <ul class="mt-5 space-y-3 text-slate-200">
+          <li class="flex gap-3"><span class="text-sky-300 font-bold">✓</span><span>공항 픽업 및 초기 숙소 안내</span></li>
+          <li class="flex gap-3"><span class="text-sky-300 font-bold">✓</span><span>한국어 가능 현지 매니저 전담 배정</span></li>
+          <li class="flex gap-3"><span class="text-sky-300 font-bold">✓</span><span>은행 계좌 개설·SIM·교통카드 세팅</span></li>
+          <li class="flex gap-3"><span class="text-sky-300 font-bold">✓</span><span>장기 주거 탐색 및 계약 지원</span></li>
+          <li class="flex gap-3"><span class="text-sky-300 font-bold">✓</span><span>병원 온보딩·유니폼·ID 발급 동행</span></li>
+          <li class="flex gap-3"><span class="text-sky-300 font-bold">✓</span><span>생활·의료 문제 긴급 대응 (24/7 핫라인)</span></li>
+          <li class="flex gap-3"><span class="text-sky-300 font-bold">✓</span><span>계약 연장·이직 상담까지 장기 지원</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="max-w-3xl mb-14">
+      <div class="text-sm font-bold text-sky-600 tracking-widest mb-3">PROCESS</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">
+        지원부터 싱가포르 근무 시작까지<br/>단 7단계, GTI가 모두 안내합니다.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-x-10 gap-y-8">
+      <div class="flex gap-5">
+        <div class="text-5xl font-extrabold step-num w-16 shrink-0">01</div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">무료 상담 및 자격 심사</h3>
+          <p class="text-slate-600 mt-1">학력·면허·경력·영어 수준 확인 후 합격 가능성 진단.</p>
+        </div>
+      </div>
+      <div class="flex gap-5">
+        <div class="text-5xl font-extrabold step-num w-16 shrink-0">02</div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">영문 서류 작성·제출</h3>
+          <p class="text-slate-600 mt-1">영문 이력서, 경력증명, 학위 공증까지 GTI가 대행.</p>
+        </div>
+      </div>
+      <div class="flex gap-5">
+        <div class="text-5xl font-extrabold step-num w-16 shrink-0">03</div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">공공병원 인터뷰</h3>
+          <p class="text-slate-600 mt-1">MOH 산하 공공병원 담당자와 화상 인터뷰. 사전 모의면접 제공.</p>
+        </div>
+      </div>
+      <div class="flex gap-5">
+        <div class="text-5xl font-extrabold step-num w-16 shrink-0">04</div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">합격 · 오퍼 레터</h3>
+          <p class="text-slate-600 mt-1">연봉·포지션·병원·입사일 협의. GTI가 직접 네고 진행.</p>
+        </div>
+      </div>
+      <div class="flex gap-5">
+        <div class="text-5xl font-extrabold step-num w-16 shrink-0">05</div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">SNB 면허 등록</h3>
+          <p class="text-slate-600 mt-1">싱가포르 간호위원회(Singapore Nursing Board) 등록 절차 대행.</p>
+        </div>
+      </div>
+      <div class="flex gap-5">
+        <div class="text-5xl font-extrabold step-num w-16 shrink-0">06</div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">취업비자 + 항공권</h3>
+          <p class="text-slate-600 mt-1">EP/SP 발급, 출국 일정, 초기 숙소까지 GTI가 세팅.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 md:col-span-2">
+        <div class="text-5xl font-extrabold step-num w-16 shrink-0">07</div>
+        <div>
+          <h3 class="font-bold text-lg text-slate-900">싱가포르 도착 · 현지 정착 지원</h3>
+          <p class="text-slate-600 mt-1">
+            공항 픽업부터 계좌 개설, 주거, 병원 온보딩, 생활 적응까지 —
+            <b>GTI 싱가포르 현지팀이 한국어로 밀착 지원</b>합니다. 취업 이후에도 연장·이직 상담을 계속 받으실 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section id="conditions" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+  <div class="absolute -left-32 top-10 w-96 h-96 rounded-full bg-sky-500/20 blur-3xl"></div>
+  <div class="absolute -right-20 bottom-0 w-96 h-96 rounded-full bg-indigo-500/20 blur-3xl"></div>
+  <div class="max-w-6xl mx-auto px-5 relative">
+    <div class="text-sm font-bold text-sky-300 tracking-widest mb-3">CONDITIONS</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold leading-snug">
+      싱가포르 공공병원 간호사<br/>근무 조건
+    </h2>
+
+    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <div class="text-sky-300 text-sm font-semibold">연봉</div>
+        <div class="text-3xl font-extrabold mt-2">SGD 45,300 ~ 67,800</div>
+        <div class="text-slate-300 text-sm mt-1">약 5,345만 ~ 8,000만원</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <div class="text-sky-300 text-sm font-semibold">주거</div>
+        <div class="text-3xl font-extrabold mt-2">숙소 제공</div>
+        <div class="text-slate-300 text-sm mt-1">또는 주거비 보조 지원</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <div class="text-sky-300 text-sm font-semibold">항공</div>
+        <div class="text-3xl font-extrabold mt-2">왕복 항공권</div>
+        <div class="text-slate-300 text-sm mt-1">계약 만료 시 귀국편 지원</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <div class="text-sky-300 text-sm font-semibold">연차</div>
+        <div class="text-3xl font-extrabold mt-2">연 18일</div>
+        <div class="text-slate-300 text-sm mt-1">임직원 의료 할인 포함</div>
+      </div>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <h3 class="font-bold text-lg">지원 자격</h3>
+        <ul class="mt-3 space-y-2 text-slate-200">
+          <li>· 간호학사 학위 소지</li>
+          <li>· 유효한 간호사 면허</li>
+          <li>· 급성기 병원 경력 1년 이상</li>
+          <li>· 업무용 영어 커뮤니케이션 가능</li>
+          <li>· (우대) 100병상 이상 병원 경력</li>
+        </ul>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <h3 class="font-bold text-lg">고용 형태</h3>
+        <ul class="mt-3 space-y-2 text-slate-200">
+          <li>· 싱가포르 공공 의료기관 정규직</li>
+          <li>· 초기 계약 2년, 이후 갱신 가능</li>
+          <li>· 교대근무, 입원 병동 간호</li>
+          <li>· 워라밸 보장, 직원 복지 프로그램</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LONG-TERM CAREER BENEFITS -->
+<section id="roadmap" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 relative">
+    <div class="max-w-3xl">
+      <div class="text-sm font-bold text-sky-600 tracking-widest mb-3">CAREER ROADMAP</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">
+        싱가포르는 끝이 아니라<br/>글로벌 커리어의 <span class="text-sky-600">출발점</span>입니다.
+      </h2>
+      <p class="mt-4 text-slate-600">
+        GTI Recruit을 통해 싱가포르 공공병원에서 경력을 쌓으면,
+        이후 <b>싱가포르 영주권(PR)</b> 또는 <b>호주 간호사 이직</b>까지 자연스럽게 이어지는 커리어 로드맵이 열립니다.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-6">
+      <!-- Benefit 1: 싱가포르 영주권 -->
+      <div class="card-hover rounded-3xl p-8 md:p-10 bg-gradient-to-br from-rose-50 to-red-50 border border-rose-200 relative overflow-hidden">
+        <div class="absolute top-6 right-6 text-6xl opacity-10">🇸🇬</div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold">BENEFIT 01</div>
+        <h3 class="mt-5 text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+          싱가포르<br/>영주권(PR) 신청 가능
+        </h3>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          싱가포르 공공병원에서 일정 기간 근무하신 후에는 <b>영주권(Permanent Resident)</b> 신청이 가능합니다.
+          간호사는 싱가포르 정부가 우선 순위로 두는 전문직군 중 하나입니다.
+        </p>
+
+        <div class="mt-6 p-5 bg-white rounded-2xl border border-rose-200">
+          <div class="text-xs font-bold text-red-600 mb-2">📊 싱가포르 보건부(MOH) 공식 통계</div>
+          <div class="text-slate-800 font-semibold leading-relaxed">
+            2018년~2022년, <span class="text-red-600 font-extrabold text-lg">매년 약 700명</span>의
+            외국인 간호사가 <br class="hidden md:block"/>싱가포르 영주권을 취득했습니다.
+          </div>
+        </div>
+
+        <ul class="mt-6 space-y-2.5 text-sm text-slate-700">
+          <li class="flex gap-2"><span class="text-red-600 font-bold">✓</span><span>배우자·자녀 동반 영주 가능</span></li>
+          <li class="flex gap-2"><span class="text-red-600 font-bold">✓</span><span>자녀는 싱가포르 공교육 혜택 (세계 최상위)</span></li>
+          <li class="flex gap-2"><span class="text-red-600 font-bold">✓</span><span>CPF(싱가포르 연금·의료저축) 가입 가능</span></li>
+          <li class="flex gap-2"><span class="text-red-600 font-bold">✓</span><span>주택 구매·사업 운영 등 폭넓은 권리</span></li>
+          <li class="flex gap-2"><span class="text-red-600 font-bold">✓</span><span>GTI Recruit이 PR 신청 서류 준비부터 가이드</span></li>
+        </ul>
+      </div>
+
+      <!-- Benefit 2: 호주 간호사 이직 -->
+      <div class="card-hover rounded-3xl p-8 md:p-10 bg-gradient-to-br from-sky-50 to-indigo-50 border border-sky-200 relative overflow-hidden">
+        <div class="absolute top-6 right-6 text-6xl opacity-10">🇦🇺</div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-700 text-white text-xs font-bold">BENEFIT 02</div>
+        <h3 class="mt-5 text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+          호주 간호사로<br/>이직 가능
+        </h3>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          싱가포르 SNB(간호위원회) 등록 + 공공병원 근무 경력은 <b>호주 AHPRA 간호사 등록</b>에서 정식으로 인정됩니다.
+          한국 → 싱가포르 → 호주로 이어지는 <b>3단계 글로벌 커리어 경로</b>가 열립니다.
+        </p>
+
+        <div class="mt-6 p-5 bg-white rounded-2xl border border-sky-200">
+          <div class="text-xs font-bold text-sky-700 mb-2">🧭 커리어 경로</div>
+          <div class="flex items-center gap-2 text-sm font-bold text-slate-800 flex-wrap">
+            <span class="px-2.5 py-1 bg-slate-100 rounded-lg">🇰🇷 한국</span>
+            <span class="text-sky-500">→</span>
+            <span class="px-2.5 py-1 bg-red-100 text-red-700 rounded-lg">🇸🇬 싱가포르</span>
+            <span class="text-sky-500">→</span>
+            <span class="px-2.5 py-1 bg-sky-100 text-sky-700 rounded-lg">🇦🇺 호주</span>
+          </div>
+        </div>
+
+        <ul class="mt-6 space-y-2.5 text-sm text-slate-700">
+          <li class="flex gap-2"><span class="text-sky-700 font-bold">✓</span><span>싱가포르 SNB 경력 → 호주 AHPRA 인정</span></li>
+          <li class="flex gap-2"><span class="text-sky-700 font-bold">✓</span><span>영어권 임상 경력으로 IELTS·면접 유리</span></li>
+          <li class="flex gap-2"><span class="text-sky-700 font-bold">✓</span><span>호주 간호사 평균 연봉 AUD 75K~100K</span></li>
+          <li class="flex gap-2"><span class="text-sky-700 font-bold">✓</span><span>호주 영주권·시민권으로 이어지는 루트</span></li>
+          <li class="flex gap-2"><span class="text-sky-700 font-bold">✓</span><span>GTI Recruit 호주 이직 상담·연계 지원</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 한 줄 요약 띠 -->
+    <div class="mt-10 rounded-2xl bg-slate-900 text-white p-6 md:p-7 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div class="flex items-center gap-4">
+        <div class="text-3xl">🌏</div>
+        <div>
+          <div class="font-extrabold text-lg">한 번의 선택, 세 나라의 커리어 옵션</div>
+          <div class="text-sm text-slate-300 mt-1">싱가포르에서 쌓은 경력은 평생 자산입니다.</div>
+        </div>
+      </div>
+      <a href="#apply" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-slate-900 font-bold hover:bg-sky-100">
+        커리어 로드맵 상담 →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SINGAPORE → AUSTRALIA PATHWAY (상세) -->
+<section id="australia" class="py-24 bg-gradient-to-b from-sky-50 via-white to-white relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-sky-200/30 blur-3xl pointer-events-none"></div>
+  <div class="max-w-6xl mx-auto px-5 relative">
+
+    <!-- 헤더 -->
+    <div class="max-w-3xl">
+      <div class="text-sm font-bold text-sky-700 tracking-widest mb-3">🇸🇬 → 🇦🇺 AUSTRALIA PATHWAY</div>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+        싱가포르 경력으로<br/><span class="text-sky-700">호주 간호사</span>가 되는 길,<br/>GTI가 열어드립니다.
+      </h2>
+      <p class="mt-5 text-slate-600 text-lg leading-relaxed">
+        싱가포르는 아시아 의료 허브입니다. 영어 기반의 국제 의료 시스템에서 일정 기간 경력을 쌓으면,
+        자연스럽게 <b>호주 간호사 면허 취득 → 호주 취업 → 영주권 이민</b>으로 이어지는
+        글로벌 커리어 루트가 열립니다.
+      </p>
+    </div>
+
+    <!-- 핵심 경로 -->
+    <div class="mt-10 rounded-3xl bg-slate-900 text-white p-8 md:p-10 relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-72 h-72 rounded-full bg-sky-500/20 blur-3xl"></div>
+      <div class="relative">
+        <div class="text-xs font-bold text-sky-300 tracking-widest mb-3">THE ROUTE</div>
+        <div class="flex flex-wrap items-center gap-3 text-lg md:text-2xl font-extrabold">
+          <span class="px-4 py-2 rounded-xl bg-white/10 border border-white/20">🇰🇷 한국 간호사</span>
+          <span class="text-sky-300">→</span>
+          <span class="px-4 py-2 rounded-xl bg-red-500/20 border border-red-300/30">🇸🇬 싱가포르 간호사</span>
+          <span class="text-sky-300">→</span>
+          <span class="px-4 py-2 rounded-xl bg-sky-500/20 border border-sky-300/30">🇦🇺 호주 간호사</span>
+          <span class="text-sky-300">→</span>
+          <span class="px-4 py-2 rounded-xl bg-emerald-500/20 border border-emerald-300/30">🏠 영주권</span>
+        </div>
+        <p class="mt-4 text-slate-300 text-sm md:text-base">
+          실제로 많은 해외 간호사가 선택하는 <b class="text-white">4단계 글로벌 커리어 경로</b>입니다.
+        </p>
+      </div>
+    </div>
+
+    <!-- 6가지 장점 -->
+    <div class="mt-16">
+      <div class="text-sm font-bold text-sky-700 tracking-widest mb-3">KEY BENEFITS</div>
+      <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900">싱가포르 경력이 호주에서 빛나는 6가지 이유</h3>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <!-- 1 -->
+      <div class="card-hover rounded-2xl border border-slate-200 bg-white p-7">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-extrabold">01</div>
+          <div class="text-sm font-bold text-sky-700">영어 기반 의료 환경</div>
+        </div>
+        <h4 class="mt-4 text-xl font-bold text-slate-900">IELTS·OET 준비, 이미 반은 완료</h4>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          싱가포르 병원은 <b>영어가 공식 의료 언어</b>입니다. 차팅·상담·보고·협업 전부 영어로 이뤄집니다.
+          이 경험은 호주가 요구하는 <b>IELTS Academic / OET</b> 준비를 훨씬 수월하게 만들고,
+          호주 병원 인터뷰에서도 결정적인 강점이 됩니다.
+        </p>
+      </div>
+
+      <!-- 2 -->
+      <div class="card-hover rounded-2xl border border-slate-200 bg-white p-7">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-extrabold">02</div>
+          <div class="text-sm font-bold text-sky-700">국제 의료 시스템 경험</div>
+        </div>
+        <h4 class="mt-4 text-xl font-bold text-slate-900">영국식·미국식 프로토콜 기반</h4>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          싱가포르 주요 공공병원은 <b>국제 인증 병원</b>이며 영국/미국 의료 시스템 기반으로 운영됩니다.
+          국제 프로토콜, 다문화 환자 케어, 다국적 의료진 협업 경험은 해외 취업에서 강력한 자산입니다.
+        </p>
+      </div>
+
+      <!-- 3 (강조) -->
+      <div class="card-hover rounded-2xl border-2 border-sky-500 bg-gradient-to-br from-sky-50 to-white p-7 relative">
+        <div class="absolute -top-3 left-7 bg-sky-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full">⭐ 핵심</div>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center text-xl font-extrabold">03</div>
+          <div class="text-sm font-bold text-sky-700">호주 면허 임상경력 충족</div>
+        </div>
+        <h4 class="mt-4 text-xl font-bold text-slate-900">NMBA 기준 1,800시간, 싱가포르 1년이면 통과</h4>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          호주 간호사 면허 관리기관 <b>NMBA(Nursing and Midwifery Board of Australia)</b>는
+          해외 간호사 등록 시 <b>최소 1,800시간 이상의 임상 경력</b>을 요구합니다.
+        </p>
+        <div class="mt-5 p-4 rounded-xl bg-white border border-sky-200">
+          <div class="flex items-center justify-between text-sm">
+            <div>
+              <div class="text-slate-500">NMBA 최소 요구</div>
+              <div class="text-lg font-extrabold text-slate-900">1,800시간</div>
+              <div class="text-xs text-slate-500">(풀타임 약 1년)</div>
+            </div>
+            <div class="text-sky-500 text-2xl font-black">≪</div>
+            <div class="text-right">
+              <div class="text-slate-500">싱가포르 2년 근무</div>
+              <div class="text-lg font-extrabold text-sky-700">3,500~4,000시간</div>
+              <div class="text-xs text-sky-600">기준 충분히 충족 ✓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card-hover rounded-2xl border border-slate-200 bg-white p-7">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-extrabold">04</div>
+          <div class="text-sm font-bold text-sky-700">호주 병원 취업 경쟁력</div>
+        </div>
+        <h4 class="mt-4 text-xl font-bold text-slate-900">채용 평가 4요소를 모두 충족</h4>
+        <p class="mt-3 text-slate-600 leading-relaxed">호주 병원이 해외 간호사를 평가할 때 보는 4가지:</p>
+        <ul class="mt-3 grid grid-cols-2 gap-2 text-sm">
+          <li class="flex gap-2"><span class="text-sky-600">✓</span><span>영어 사용 능력</span></li>
+          <li class="flex gap-2"><span class="text-sky-600">✓</span><span>임상 경력</span></li>
+          <li class="flex gap-2"><span class="text-sky-600">✓</span><span>해외 병원 경험</span></li>
+          <li class="flex gap-2"><span class="text-sky-600">✓</span><span>의료 시스템 적응력</span></li>
+        </ul>
+        <p class="mt-3 text-slate-600 text-sm">싱가포르 공공병원 경력은 <b>4가지 모두를 동시에 증명</b>합니다.</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="card-hover rounded-2xl border border-slate-200 bg-white p-7">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl font-extrabold">05</div>
+          <div class="text-sm font-bold text-sky-700">Comparable Jurisdiction</div>
+        </div>
+        <h4 class="mt-4 text-xl font-bold text-slate-900">호주가 인정하는 유사 규제 국가</h4>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          호주는 일부 국가의 간호 교육·면허 시스템을 <b>Comparable Jurisdiction</b>으로 인정합니다.
+          여기에 <b class="text-sky-700">싱가포르</b>가 포함됩니다.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold">
+          <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">🇬🇧 United Kingdom</span>
+          <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">🇮🇪 Ireland</span>
+          <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">🇨🇦 Canada</span>
+          <span class="px-2.5 py-1 rounded-full bg-sky-600 text-white">🇸🇬 Singapore</span>
+          <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">🇪🇸 Spain</span>
+          <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">🇺🇸 United States</span>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card-hover rounded-2xl border border-slate-200 bg-white p-7">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-extrabold">06</div>
+          <div class="text-sm font-bold text-emerald-700">취업비자·영주권</div>
+        </div>
+        <h4 class="mt-4 text-xl font-bold text-slate-900">간호사는 호주 Skilled Occupation 직군</h4>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          호주는 의료 인력 부족으로 간호사를 <b>부족 직업군(Skilled Occupation)</b>에 지정하고 있습니다.
+          싱가포르 경력 기반으로 아래 비자 루트가 열립니다:
+        </p>
+        <ul class="mt-4 space-y-2">
+          <li class="flex gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+            <span class="text-emerald-700 font-extrabold shrink-0">189</span>
+            <span class="text-sm text-slate-700"><b>Skilled Independent Visa</b> — 독립 기술 이민</span>
+          </li>
+          <li class="flex gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+            <span class="text-emerald-700 font-extrabold shrink-0">190</span>
+            <span class="text-sm text-slate-700"><b>Skilled Nominated Visa</b> — 주정부 후원 이민</span>
+          </li>
+          <li class="flex gap-3 p-3 rounded-lg bg-emerald-50 border border-emerald-100">
+            <span class="text-emerald-700 font-extrabold shrink-0">482</span>
+            <span class="text-sm text-slate-700"><b>Employer Sponsored Visa</b> — 고용주 스폰서 취업 비자</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 하단 요약 CTA -->
+    <div class="mt-14 rounded-3xl bg-gradient-to-r from-sky-600 to-indigo-700 text-white p-8 md:p-10">
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="md:col-span-2">
+          <div class="text-xs font-bold text-sky-200 tracking-widest">SUMMARY</div>
+          <h3 class="mt-2 text-2xl md:text-3xl font-extrabold leading-tight">
+            싱가포르는 호주 간호사가 되기 위한<br/><u>가장 현실적인 첫 단계</u>입니다.
+          </h3>
+          <p class="mt-3 text-sky-100 text-sm md:text-base">
+            GTI Recruit은 싱가포르 취업부터 장기 커리어 상담(PR·호주 이직)까지 연계 지원합니다.
+          </p>
+        </div>
+        <div class="text-center md:text-right">
+          <a href="#apply" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-sky-700 font-extrabold hover:bg-sky-50 shadow-lg">
+            호주 루트 상담하기 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ENGLISH & WEBINAR -->
+<section id="education" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-sm font-bold text-sky-600 tracking-widest mb-3">ENGLISH SUPPORT</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">
+      영어가 걱정이신가요?<br/>그 부분도 GTI가 함께 준비합니다.
+    </h2>
+    <p class="mt-4 text-slate-600 max-w-2xl">
+      싱가포르 공공병원은 업무 영어 수준을 요구합니다. GTI Recruit은 IELTS 대비 교육 과정과
+      의료 영어·면접 코칭 프로그램을 연계해 실제 인터뷰까지 대비해 드립니다.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <div class="card-hover rounded-2xl border border-slate-200 p-7 bg-white">
+        <div class="text-3xl">🎯</div>
+        <h3 class="mt-4 text-xl font-bold text-slate-900">IELTS 대비 과정</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          싱가포르 SNB 등록에 유리한 IELTS 6.0+ 달성을 위한 체계적 교육 프로그램을 안내합니다.
+          신청자 개별 수준에 맞는 커리큘럼으로 시작.
+        </p>
+      </div>
+      <div class="card-hover rounded-2xl border border-slate-200 p-7 bg-white">
+        <div class="text-3xl">🩺</div>
+        <h3 class="mt-4 text-xl font-bold text-slate-900">의료 영어 · 면접 코칭</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          간호 현장에서 실제로 쓰는 차팅·보고·인수인계 표현 중심 학습.
+          공공병원 인터뷰 전 <b>1:1 모의면접</b>으로 실전 감각을 잡아드립니다.
+        </p>
+      </div>
+      <div class="card-hover rounded-2xl border border-slate-200 p-7 bg-white">
+        <div class="text-3xl">🧪</div>
+        <h3 class="mt-4 text-xl font-bold text-slate-900">SNB CBT 시험 가이드</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          싱가포르 간호위원회(SNB) 면허 시험(Computer-Based Test) 과목별
+          기출·출제 경향·준비 자료를 정리해 드립니다.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-sm font-bold text-sky-600 tracking-widest mb-3">VOICES</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">
+      GTI와 함께 간 선생님들의 이야기
+    </h2>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-slate-200 p-7 bg-white card-hover">
+        <div class="text-sky-500 text-xl">★★★★★</div>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          "서류부터 면허 시험, 비자까지 혼자 했으면 절대 못 했을 거예요.
+          GTI가 단계마다 정확히 안내해 주셔서 큰 실수 없이 진행됐습니다."
+        </p>
+        <div class="mt-5 text-sm text-slate-500">K 선생님 · 싱가포르 공공병원 RN</div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-7 bg-white card-hover">
+        <div class="text-sky-500 text-xl">★★★★★</div>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          "가장 좋았던 건 도착한 이후였어요. 공항에 매니저님이 나와 계셨고,
+          집 구할 때랑 계좌 개설할 때도 같이 가주셔서 3일 만에 세팅이 끝났습니다."
+        </p>
+        <div class="mt-5 text-sm text-slate-500">J 선생님 · 병동 간호사</div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-7 bg-white card-hover">
+        <div class="text-sky-500 text-xl">★★★★★</div>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          "MOH 공식 벤더라는 게 생각보다 크더라고요. 공공병원 인터뷰가
+          처음부터 정식 라인으로 진행돼서 프로세스가 깔끔했어요."
+        </p>
+        <div class="mt-5 text-sm text-slate-500">H 선생님 · 수술실 간호사</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-4xl mx-auto px-5">
+    <div class="text-sm font-bold text-sky-600 tracking-widest mb-3">FAQ</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">자주 묻는 질문</h2>
+
+    <div class="mt-10 divide-y divide-slate-200 border-y border-slate-200 bg-white rounded-2xl overflow-hidden">
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          영어를 잘 못하는데 지원이 가능한가요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          원어민 수준을 요구하지 않습니다. 환자·동료와의 <b>업무 커뮤니케이션 수준</b>이면 충분합니다.
+          GTI는 인터뷰 전 영문 이력서 작성과 모의면접을 무료로 제공해 합격률을 높입니다.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          수수료가 따로 있나요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          <b>지원자에게는 어떠한 비용도 청구하지 않습니다.</b>
+          상담·서류 대행·SNB 면허·비자·항공권·현지 정착까지 전 과정이 <b>100% 무료</b>입니다.
+          소개비·알선료·교육비·보증금·위약금 명목의 비용도 일체 없습니다.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          전 과정이 얼마나 걸리나요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          서류 준비 상태에 따라 다르지만 일반적으로 <b>지원부터 출국까지 4~6개월</b>이 소요됩니다.
+          GTI가 단계별 일정을 관리해 지연을 최소화합니다.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          도착한 이후에도 도움을 받을 수 있나요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          물론입니다. GTI는 싱가포르 <b>현지 사무소와 한국어 가능 매니저</b>를 운영합니다.
+          도착 직후 세팅은 물론, 재계약·이직 상담까지 장기적으로 지원합니다.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          어느 병원으로 배치되나요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          싱가포르 공공 의료 클러스터(NHG, NUHS, SingHealth) 산하 병원으로 배치됩니다.
+          경력·전공·선호 진료과에 맞춰 GTI가 매칭을 조율합니다.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          IELTS 점수가 꼭 있어야 하나요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          SNB 면허 등록에서는 일반적으로 <b>IELTS 6.0 이상</b>을 권장합니다. 아직 점수가 없어도
+          상담은 가능하며, GTI가 IELTS·의료 영어 교육 과정을 연계해 드립니다. 점수가 부족해도
+          먼저 시작할 수 있는 트랙이 있으니 편하게 문의 주세요.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          싱가포르 간호사 면허시험(SNB CBT)은 어떤 시험인가요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          싱가포르 간호위원회(Singapore Nursing Board)가 주관하는 <b>컴퓨터 기반 면허시험(CBT)</b>입니다.
+          해외 간호사가 싱가포르에서 RN으로 일하기 위해 통과해야 하는 절차로,
+          GTI Recruit이 출제 경향·기출·준비 자료를 제공하고 일정 관리까지 지원합니다.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          싱가포르 영주권(PR)을 정말 받을 수 있나요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          싱가포르 보건부(MOH) 발표에 따르면 <b>2018~2022년 매년 약 700명의 외국인 간호사가 영주권을 취득</b>했습니다.
+          간호사는 싱가포르 정부가 영주권 심사에서 우선 검토하는 전문직군 중 하나이며,
+          일정 근무 기간이 지나면 신청이 가능합니다. GTI Recruit이 PR 신청 준비 단계까지 안내해 드립니다.
+        </p>
+      </details>
+      <details class="group p-6">
+        <summary class="flex items-center justify-between font-semibold text-slate-900">
+          싱가포르에서 일한 경력으로 호주 간호사도 될 수 있나요?
+          <span class="plus text-sky-600 text-2xl font-light">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 leading-relaxed">
+          네. 싱가포르 SNB 면허와 공공병원 근무 경력은 <b>호주 AHPRA(Australian Health Practitioner Regulation Agency) 등록</b>에서
+          정식으로 인정됩니다. 영어권 임상 경력이 쌓여있기 때문에 IELTS·면접에서도 유리하며,
+          호주 간호사 이직은 장기적으로 <b>호주 영주권·시민권 루트</b>로도 이어집니다. 원하시면 GTI에서 호주 이직까지 연계 상담해 드립니다.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY / CONTACT -->
+<section id="apply" class="py-24">
+  <div class="max-w-4xl mx-auto px-5">
+    <div class="rounded-3xl gradient-hero text-white p-10 md:p-16 relative overflow-hidden text-center">
+      <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-sky-400/20 blur-3xl"></div>
+
+      <div class="relative">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-300 text-slate-900 text-xs font-extrabold">💸 지원자 수수료 0원</div>
+
+        <h2 class="mt-6 text-3xl md:text-5xl font-extrabold leading-tight">
+          지금 바로<br/>싱가포르 커리어를 시작하세요.
+        </h2>
+
+        <p class="mt-6 text-sky-100/90 text-base md:text-lg max-w-2xl mx-auto">
+          아래 버튼을 누르면 <b class="text-white">rudyjeong@gti-audit.kr</b> 로 바로 메일을 보내실 수 있습니다.
+          <br class="hidden md:block" />
+          상담부터 싱가포르 현지 정착까지 <b class="text-white">전 과정 지원자 부담금 0원</b>.
+        </p>
+
+        <!-- 메일 앱 원클릭 버튼 -->
+        <a
+          href="mailto:rudyjeong@gti-audit.kr?subject=%5BGTI%20Recruit%5D%20%EC%8B%B1%EA%B0%80%ED%8F%AC%EB%A5%B4%20%EA%B0%84%ED%98%B8%EC%82%AC%20%EC%B7%A8%EC%97%85%20%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20GTI%20Recruit%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EB%8B%98.%0A%0A%EC%8B%B1%EA%B0%80%ED%8F%AC%EB%A5%B4%20%EA%B0%84%ED%98%B8%EC%82%AC%20%EC%B7%A8%EC%97%85%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%8B%A0%EC%B2%AD%ED%95%98%EA%B3%A0%EC%8B%B6%EC%8A%B5%EB%8B%88%EB%8B%A4.%0A%0A%E2%96%A0%20%EC%84%B1%ED%95%A8%3A%20%0A%E2%96%A0%20%EC%97%B0%EB%9D%BD%EC%B2%98%3A%20%0A%E2%96%A0%20%EA%B2%BD%EB%A0%A5%3A%20%0A%E2%96%A0%20%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9%3A%20%0A%0A%EA%B0%90%EC%82%AC%ED%95%A9%EB%8B%88%EB%8B%A4."
+          class="mt-10 inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full gradient-accent text-white text-lg md:text-xl font-extrabold shadow-2xl hover:opacity-95 transition"
+        >
+          ✉️ 무료 상담 신청하기
+          <span class="text-2xl">→</span>
+        </a>
+
+        <p class="mt-4 text-xs text-sky-100/70">
+          버튼을 누르면 기본 메일 앱이 열리며 <b class="text-white">rudyjeong@gti-audit.kr</b> 로 전송됩니다.
+        </p>
+
+        <!-- 기타 연락처 -->
+        <div class="mt-12 pt-8 border-t border-white/20 grid sm:grid-cols-3 gap-6 text-sm text-sky-100/90">
+          <div>
+            <div class="text-xs text-sky-300 mb-1">📧 이메일</div>
+            <a href="mailto:rudyjeong@gti-audit.kr" class="text-white font-bold hover:underline">rudyjeong@gti-audit.kr</a>
+          </div>
+          <div>
+            <div class="text-xs text-sky-300 mb-1">💬 카카오톡</div>
+            <div class="text-white font-bold">@GTIRecruit</div>
+          </div>
+          <div>
+            <div class="text-xs text-sky-300 mb-1">🏢 사무소</div>
+            <div class="text-white font-bold">서울 본사 · 싱가포르 현지팀</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 py-12">
+  <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-3 gap-8">
+    <div>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-lg gradient-hero flex items-center justify-center text-white font-extrabold">G</div>
+        <div>
+          <div class="text-white font-extrabold">GTI Recruit</div>
+          <div class="text-xs">Singapore MOH Official Vendor</div>
+        </div>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed">
+        싱가포르 보건부(MOH) 공식 인증 채용 벤더.
+        한국 간호사의 싱가포르 공공병원 취업을 처음부터 끝까지 책임집니다.
+      </p>
+    </div>
+    <div>
+      <div class="text-white font-bold mb-3">바로가기</div>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#why" class="hover:text-white">왜 GTI인가</a></li>
+        <li><a href="#services" class="hover:text-white">서비스</a></li>
+        <li><a href="#process" class="hover:text-white">진행 절차</a></li>
+        <li><a href="#conditions" class="hover:text-white">근무 조건</a></li>
+        <li><a href="#faq" class="hover:text-white">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-white font-bold mb-3">연락처</div>
+      <ul class="space-y-2 text-sm">
+        <li>✉️ <a href="mailto:rudyjeong@gti-audit.kr?subject=%5BGTI%20Recruit%5D%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98" class="hover:text-white underline">rudyjeong@gti-audit.kr</a></li>
+        <li>📞 카카오톡 @GTIRecruit</li>
+        <li>🏢 서울 본사 · 싱가포르 현지 사무소</li>
+        <li>🌐 <a href="https://gti-audit.kr" class="hover:text-white">gti-audit.kr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-5 mt-10 pt-6 border-t border-slate-800 text-xs flex flex-col md:flex-row justify-between gap-2">
+    <div>© 2026 GTI Recruit. All rights reserved.</div>
+    <div>Singapore Ministry of Health Official Recruitment Partner</div>
+  </div>
+</footer>
+
+</body>
+</html>
